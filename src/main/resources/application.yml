@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+girl:
+  cupSize: B
+  age: 18
+  msg: 按计划但是看见
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/django_study?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: lgm123
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  messages:
+    encoding: UTF-8
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+content: "cupSize: ${cupSize},age:${age}"
+
+swagger:
+  enabled: true
+  title: 21su-API
+  description: 工塑之家API文档
+  base-package:  com.example.springttest.controller
+  base-path: /**
+  exclude-path: /error
+mybatis:
+  mapper-locations: classpath:com/example/springboottest/mapper/*.xml
+
