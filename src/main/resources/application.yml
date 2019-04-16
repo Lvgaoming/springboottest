@@ -10,7 +10,7 @@ girl:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/django_study?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/sport?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: lgm123
   http:
@@ -20,6 +20,26 @@ spring:
       force: true
   messages:
     encoding: UTF-8
+
+#  配置redis连接信息
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+##    timeout: 10
+#    jedis:
+#      pool:
+#        # 最大空闲连接
+#        max-idle: 8
+#        # 最小空闲链接
+#        min-idle: 0
+#        # 最大连接数（负数表示没有限制）
+#        max-active: 8
+#        # 最大阻塞等待时间（负数表示没有限制）
+#        max-wait: 0
+#      # 链接超时时间（毫秒）
+#      timeout: 50
+
 
 
   jpa:

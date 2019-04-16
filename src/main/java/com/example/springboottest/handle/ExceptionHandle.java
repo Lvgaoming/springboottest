@@ -21,7 +21,7 @@ public class ExceptionHandle {
             GirlException girlException=(GirlException) e;
             return ResultUtil.error(girlException.getCode(),girlException.getMessage());
         }else {
-            return ResultUtil.error(103,"未知错误");
+            return ResultUtil.error(103,e.getMessage());
         }
 
     }

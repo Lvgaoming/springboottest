@@ -22,7 +22,7 @@
         <!-- JDBC连接 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/django_study?characterEncoding=UTF-8"
+                connectionURL="jdbc:mysql://localhost:3306/sport?characterEncoding=UTF-8"
                 userId="root"
                 password="lgm123">
         </jdbcConnection>
@@ -60,8 +60,8 @@
             是否生成 example类 -->
 
 
-        <table schema="${jdbc.username}" tableName="student"
-               domainObjectName="Studen" enableCountByExample="false"
+        <table schema="${jdbc.username}" tableName="yundongyuan"
+               domainObjectName="Sporter" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>

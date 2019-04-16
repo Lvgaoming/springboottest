@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springboottest.mybatistest.dao.mapper.SporterMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springboottest.mybatistest.dao.model.Sporter" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="xingming" property="xingming" jdbcType="VARCHAR" />
+    <result column="danwei" property="danwei" jdbcType="VARCHAR" />
+    <result column="chengzhongjibie" property="chengzhongjibie" jdbcType="VARCHAR" />
+    <result column="yundongyuanhao" property="yundongyuanhao" jdbcType="VARCHAR" />
+    <result column="qianhao" property="qianhao" jdbcType="INTEGER" />
+    <result column="xingbie" property="xingbie" jdbcType="VARCHAR" />
+    <result column="zubie" property="zubie" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, xingming, danwei, chengzhongjibie, yundongyuanhao, qianhao, xingbie, zubie
+  </sql>
+
+  <!--查询所有运动员-->
+  <select id="selectAllSporter"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from yundongyuan
+
+  </select>
+
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yundongyuan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yundongyuan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.springboottest.mybatistest.dao.model.Sporter" >
+    insert into yundongyuan (id, xingming, danwei, 
+      chengzhongjibie, yundongyuanhao, qianhao, 
+      xingbie, zubie)
+    values (#{id,jdbcType=INTEGER}, #{xingming,jdbcType=VARCHAR}, #{danwei,jdbcType=VARCHAR}, 
+      #{chengzhongjibie,jdbcType=VARCHAR}, #{yundongyuanhao,jdbcType=VARCHAR}, #{qianhao,jdbcType=INTEGER}, 
+      #{xingbie,jdbcType=VARCHAR}, #{zubie,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springboottest.mybatistest.dao.model.Sporter" >
+    insert into yundongyuan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="xingming != null" >
+        xingming,
+      </if>
+      <if test="danwei != null" >
+        danwei,
+      </if>
+      <if test="chengzhongjibie != null" >
+        chengzhongjibie,
+      </if>
+      <if test="yundongyuanhao != null" >
+        yundongyuanhao,
+      </if>
+      <if test="qianhao != null" >
+        qianhao,
+      </if>
+      <if test="xingbie != null" >
+        xingbie,
+      </if>
+      <if test="zubie != null" >
+        zubie,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xingming != null" >
+        #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="chengzhongjibie != null" >
+        #{chengzhongjibie,jdbcType=VARCHAR},
+      </if>
+      <if test="yundongyuanhao != null" >
+        #{yundongyuanhao,jdbcType=VARCHAR},
+      </if>
+      <if test="qianhao != null" >
+        #{qianhao,jdbcType=INTEGER},
+      </if>
+      <if test="xingbie != null" >
+        #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="zubie != null" >
+        #{zubie,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springboottest.mybatistest.dao.model.Sporter" >
+    update yundongyuan
+    <set >
+      <if test="xingming != null" >
+        xingming = #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        danwei = #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="chengzhongjibie != null" >
+        chengzhongjibie = #{chengzhongjibie,jdbcType=VARCHAR},
+      </if>
+      <if test="yundongyuanhao != null" >
+        yundongyuanhao = #{yundongyuanhao,jdbcType=VARCHAR},
+      </if>
+      <if test="qianhao != null" >
+        qianhao = #{qianhao,jdbcType=INTEGER},
+      </if>
+      <if test="xingbie != null" >
+        xingbie = #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="zubie != null" >
+        zubie = #{zubie,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springboottest.mybatistest.dao.model.Sporter" >
+    update yundongyuan
+    set xingming = #{xingming,jdbcType=VARCHAR},
+      danwei = #{danwei,jdbcType=VARCHAR},
+      chengzhongjibie = #{chengzhongjibie,jdbcType=VARCHAR},
+      yundongyuanhao = #{yundongyuanhao,jdbcType=VARCHAR},
+      qianhao = #{qianhao,jdbcType=INTEGER},
+      xingbie = #{xingbie,jdbcType=VARCHAR},
+      zubie = #{zubie,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
